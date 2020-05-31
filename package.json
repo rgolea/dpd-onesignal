@@ -1,0 +1,31 @@
+{
+  "name": "dpd-onesignal",
+  "version": "0.0.1",
+  "description": "Deployd module for sending push notifications from the server to onesignal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dpd",
+    "deployd",
+    "dpdmodule",
+    "onesignal"
+  ],
+  "author": "@rgolea",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Rares Golea",
+      "email": "rgolea@github.com",
+      "url": "https://github.com/rgolea",
+      "contributions": 1,
+      "additions": 1,
+      "deletions": 1,
+      "hireable": true
+    }
+  ],
+  "dependencies": {
+    "onesignal-node": "3.0.1"
+  }
+}
