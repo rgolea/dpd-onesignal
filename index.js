@@ -4,7 +4,8 @@
 
 var Resource = require('deployd/lib/resource'),
   util = require('util'),
-  OneSignal = require('onesignal-node');
+  Signal = require('onesignal-node'),
+  Client = Signal.Client;
 
 /**
  * Module setup.
@@ -14,16 +15,15 @@ function Onesignal() {
 
   Resource.apply(this, arguments);
 
-  this.transport.use('compile', htmlToText({}));
-  this.client = Onesignal.Client(this.config.appId, this.confg.apiKey);
+  this.client = new Client(this.config.appId, this.config.apiKey);
 
 }
 
 util.inherits(Onesignal, Resource);
 
-OneSignal.prototype.clientGeneration = true;
+Onesignal.prototype.clientGeneration = true;
 
-OneSignal.basicDashboard = {
+Onesignal.basicDashboard = {
   settings: [
     {
       name: 'appId',
@@ -44,7 +44,7 @@ OneSignal.basicDashboard = {
  * Module methodes
  */
 
-OneSignal.prototype.handle = function (ctx, next) {
+Onesignal.prototype.handle = function (ctx, next) {
 
   if (ctx.req && ctx.req.method !== 'POST') {
     return next();
