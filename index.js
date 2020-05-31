@@ -3,6 +3,7 @@
  */
 
 var Resource = require('deployd/lib/resource'),
+  util = require('util'),
   OneSignal = require('onesignal-node');
 
 /**
