@@ -58,9 +58,13 @@ Onesignal.prototype.handle = function (ctx, next) {
 
 
 
-  this.client.sendMessage(options).then(function (response) {
-    ctx.done(null, response);
+  this.client.createNotification(options).then(function (response) {
+    ctx.done(null, {
+      body: JSON.stringify(response.body),
+      status: response.statusCode
+    });
   }).catch(function (err) {
+    console.log(err);
     ctx.done(err);
   });
 
